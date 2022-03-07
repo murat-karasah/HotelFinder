@@ -15,7 +15,6 @@ namespace HotelFinderUI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private string baseUrl;
 
         public HomeController(ILogger<HomeController> logger)
         {
