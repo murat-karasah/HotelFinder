@@ -1,5 +1,6 @@
 ﻿using HotelFinderEntities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,13 @@ namespace HotelFinderDataAccess
 {
    public class HotelDbContext:DbContext
     {
-        public DbSet<Hotel> Holtes{ get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Server=DESKTOP-O6O0BMG\\SQLEXPRESS;Database=HotelDb; Trusted_Connection = true;");
+        }
+
+
+        public DbSet<Hotel> Hotels{ get; set; }
     }
 }
